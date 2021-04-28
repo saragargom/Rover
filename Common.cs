@@ -5,7 +5,7 @@
         public const int MaxCoordinate = 50;
         public const int MaxInstrunctionLenght = 100;
 
-        public const char ForwardCommand = 'M';
+        public const char ForwardCommand = 'F';
 
         public enum Direction
         {

@@ -7,6 +7,7 @@ namespace MarsRovers
     class Program
     {
         // TODO: dependency injection
+
         static void Main(string[] args)
         {
             // The first line of input is the upper-right coordinates of the rectangular world, the lower-left coordinates are assumed to be 0, 0.
@@ -77,11 +78,6 @@ namespace MarsRovers
         static Planet CreatePlanet(string name)
         {
             return new Planet(name);
-        }
-
-        static Rover CreateRobot(int initialX, int initialY, Common.Direction orientation)
-        {
-            return new Rover(initialX, initialY, orientation);
-        }
+        }       
     }
 }

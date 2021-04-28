@@ -44,6 +44,7 @@ namespace MarsRovers
             Console.WriteLine(string.Format("Initial rover location- X:{0}, Y:{1}, Direction:{2}", rover.XPosition, rover.YPosition, rover.CurrentDirection.ToString()));
             foreach (char command in rover.Instruction)
             {
+                bool resultMove= true;
                 Console.WriteLine("Processing : " + command);
 
                 if (command == (char)Common.TurnDirection.L)
@@ -56,14 +57,16 @@ namespace MarsRovers
                 }
                 else if (command == Common.ForwardCommand)
                 {
-                    mars.MoveRover(rover);
+                   resultMove = mars.MoveRover(rover);
                 }
                 else
                 {
                     Console.WriteLine("Invalid Command: " + command);
                 }
 
-                Console.WriteLine(string.Format("{0}, {1}, {2}", rover.XPosition, rover.YPosition, rover.CurrentDirection.ToString()));
+                // For each robot position/ instruction in the input, the output should indicate the final grid position and orientation of the robot. 
+                // If a robot falls off the edge of the grid the word "LOST" should be printed after the position and orientation.
+                Console.WriteLine(string.Format("{0}, {1}, {2} {3}", rover.XPosition, rover.YPosition, rover.CurrentDirection.ToString(), resultMove? "": "LOST"));
             }
 
             Console.WriteLine(string.Format("Final rover location- X:{0}, Y:{1}, Direction:{2}", rover.XPosition, rover.YPosition, rover.CurrentDirection.ToString()));
